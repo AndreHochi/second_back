@@ -7,6 +7,9 @@ Rails.application.routes.draw do
       post '/signup', to: "users#create"
       get '/getobjectives', to: "objectives#getUserObjectives"
       get '/getlinks', to: "links#getUserLinks"
+      patch '/updateUser', to: "users#update"
+      post '/newObjNoLink', to: 'objectives#createNoLink'
+      post '/newObjLink', to: 'objectives#newObjLink'
     end
   end
 end

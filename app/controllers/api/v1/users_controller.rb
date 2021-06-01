@@ -6,5 +6,10 @@ class Api::V1::UsersController < ApplicationController
         User.create(name: params[:name], password: params[:password])
     end
 
+    def update
+        user = current_user
+        user.update(name: params[:name], password: params[:password])
+        render json: {user: user}
+    end
 
 end
