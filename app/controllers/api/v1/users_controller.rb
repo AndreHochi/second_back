@@ -12,4 +12,9 @@ class Api::V1::UsersController < ApplicationController
         render json: {user: user}
     end
 
+    def delete
+        user = current_user
+        user.destroy
+    end
+
 end

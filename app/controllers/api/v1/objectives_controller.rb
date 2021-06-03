@@ -21,5 +21,19 @@ class Api::V1::ObjectivesController < ApplicationController
 
     end
 
+    def deleteObj
+        user = current_user
+        obj = Objective.all.find_by(id: params[:id])
+        obj.afters_links.destroy_all
+        obj.befores_links.destroy_all
+        obj.destroy
+    end
+
+    def editObj
+        user = current_user
+        objectives = params[:data]
+        allObjectives = Objective.all
+        objectives.each{|objective| allObjectives.find{|objectivea| objectivea["id"] == objective["id"].to_i}.update(name: objective["name"], description: objective["description"], duration: objective["duration"].to_i, years: objective["years"], months: objective["months"], days: objective["days"], hours: objective["hours"], minutes: objective["minutes"], seconds: objective["seconds"])}
+    end
 
 end

@@ -10,6 +10,9 @@ Rails.application.routes.draw do
       patch '/updateUser', to: "users#update"
       post '/newObjNoLink', to: 'objectives#createNoLink'
       post '/newObjLink', to: 'objectives#newObjLink'
+      delete '/deleteObj', to: 'objectives#deleteObj'
+      delete '/deleteUser', to: 'users#delete'
+      patch '/editObj', to: 'objectives#editObj'
     end
   end
 end
